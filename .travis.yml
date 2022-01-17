@@ -3,19 +3,14 @@ sudo: false # only for faster builds
 
 # script:
 #   - make 
-#   - ./HW
+#   - ./hello
 #   - gcov test_init.c
 
+# script:
+# - ./fuzz_tset.sh
 
 script:
-- git clone https://github.com/AFLplusplus/AFLplusplus.git
-- cd AFLplusplus
-- make
-- cd ..
-- mkdir seed
-- echo input >> seed/inp1 
-- AFLplusplus/afl-gcc -o fuzz test_fuzzing.c
-- AFLplusplus/afl-fuzz -i seed -o out ./fuzz
+
 
 notifications:
  email:
