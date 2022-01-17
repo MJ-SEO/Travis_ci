@@ -14,7 +14,7 @@ install:
 
 before_script:
 - mkdir seed
-- echo input | cat seed/inp1 
+- echo input >> seed/inp1 
 
 script:
 - AFLplusplus/afl-gcc -o fuzz test_fuzzing.c
