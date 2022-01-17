@@ -1,0 +1,20 @@
+language: c
+
+compiler:
+	- gcc
+	- clang
+
+branches:
+	only:
+		- master
+
+notifications:
+	slack:
+	email:
+		recipients:
+			- audwns392@naver.com
+			- 21600343@handong.edu
+
+script: make
+
+
