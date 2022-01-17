@@ -17,8 +17,8 @@ before_script:
 - echo input >> seed/inp1 
 
 script:
-- AFLplusplus/afl-gcc -o fuzz test_fuzzing.c
-- AFLplusplus/afl-fuzz -i seed -o out ./fuzz
+- ./AFLplusplus/afl-gcc -o fuzz test_fuzzing.c
+- ./AFLplusplus/afl-fuzz -i seed -o out ./fuzz
 
 notifications:
  email:
