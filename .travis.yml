@@ -1,9 +1,27 @@
 language: c
 sudo: false # only for faster builds
-script:
-  - make 
-  - ./HW
-  - gcov test_init.c
 
-after_success:
-  - bash <(curl -s https://codecov.io/bash)
+# script:
+#   - make 
+#   - ./HW
+#   - gcov test_init.c
+
+
+install:
+- git clone https://github.com/AFLplusplus/AFLplusplus.git
+- cd AFLplusplus
+- make
+
+before_script:
+- mkdir seed
+- echo input | cat seed/inp1 
+
+script:
+- AFLplusplus/afl-gcc -o fuzz test_fuzzing.c
+- AFLplusplus/afl-fuzz -i seed -o out ./fuzz
+
+notifications:
+ email:
+  recipients:
+   - audwns392@naver.com
+

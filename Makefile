@@ -1,6 +1,9 @@
 all:
 	echo "test"
-	gcc -o HW --coverage test_init.c
+	gcc -o hello --coverage test_init.c
+
+fuzz:
+	gcc -o bad test_fuzzing.c
 
 clean:
-	rm -rf *.gcno *.gcda HW
+	rm -rf *.gcno *.gcda hello bad
