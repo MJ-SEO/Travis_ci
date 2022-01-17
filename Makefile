@@ -1,3 +1,6 @@
 all:
 	echo "test"
-	gcc -o HW test_init.c
+	gcc -o HW --coverage test_init.c
+
+clean:
+	rm -rf *.gcno *.gcda HW

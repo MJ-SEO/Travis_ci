@@ -1,21 +1,9 @@
 language: c
+sudo: false # only for faster builds
+script:
+  - make 
+  - ./HW
+  - gcov test_init.c
 
-compiler:
-- gcc
-- clang
-
-branches:
-	only:
-	- master
-
-notifications:
-	slack:
-	email:
-		recipients:
-		- audwns392@naver.com
-		- 21600343@handong.edu
-
-script: 
-- make
-
-
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
