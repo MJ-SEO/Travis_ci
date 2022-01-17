@@ -1,20 +1,21 @@
 language: c
 
 compiler:
-	- gcc
-	- clang
+- gcc
+- clang
 
 branches:
 	only:
-		- master
+	- master
 
 notifications:
 	slack:
 	email:
 		recipients:
-			- audwns392@naver.com
-			- 21600343@handong.edu
+		- audwns392@naver.com
+		- 21600343@handong.edu
 
-script: make
+script: 
+- make
 
 
