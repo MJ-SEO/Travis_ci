@@ -9,7 +9,7 @@ env:
  - AFL_STOP_MANUALLY=1
 
 script:
- - ./fuzz_tset.sh
+ - ./fuzz_test.sh
 
 notifications:
  email:
