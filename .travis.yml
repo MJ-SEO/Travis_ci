@@ -1,16 +1,15 @@
 language: c
+
 sudo: false # only for faster builds
 
-# script:
-#   - make 
-#   - ./hello
-#   - gcov test_init.c
-
-# script:
-# - ./fuzz_tset.sh
+env:
+	- AFL_I_DONT_CARE_ABOUT_MISSING_CRASHES=1
+	- AFL_SKIP_CPUFREQ=1
+	- AFL_NO_UI=1
+	- AFL_STOP_MANUALLY=1
 
 script:
-
+	- ./fuzz_tset.sh
 
 notifications:
  email:

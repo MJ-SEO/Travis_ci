@@ -1,8 +1,5 @@
 #! /bin/bash
 
-export AFL_SKIP_CPUFREQ=1
-export AFL_I_DONT_CARE_ABOUT_MISSING_CRASHES=1
-
 git clone https://github.com/AFLplusplus/AFLplusplus.git
 cd AFLplusplus
 make
@@ -10,5 +7,7 @@ cd ..
 mkdir seeds
 echo input >> seeds/inp1 
 AFLplusplus/afl-gcc -o fuzz test_fuzzing.c
-AFLplusplus/afl-fuzz -i seeds -o out ./fuzz
-
+if [ -z "$AFL_STOP_MANUALLY" ];
+then AFLplusplus/afl-fuzz -i seeds -o out ./fuzz
+else timeout --presevev-status 5s ./afl-fuzz -i seeds -o out ./fuzz
+fi
