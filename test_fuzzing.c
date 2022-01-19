@@ -3,8 +3,9 @@
 #include <stdlib.h>
 #include <assert.h>
 #include <unistd.h>
-	
-char* inp = (char*)malloc(sizeof(char)*100);
+
+int main(){
+	char* inp = (char*)malloc(sizeof(char)*100);
 	scanf("%s", inp);
 
 	if(strlen(inp) > 0 && inp[0] == 'b'){
