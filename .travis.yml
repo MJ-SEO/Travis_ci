@@ -12,4 +12,5 @@ notifications:
  email:
   recipients:
    - audwns392@naver.com
+  on_success: never
 
